@@ -138,4 +138,23 @@ pub enum ContractError {
     /// `withdraw_assets` was called and the required shares to redeem `assets`
     /// exceeded the caller's `max_shares_in` cap.
     MaxSharesExceeded = 31,
+    /// Constructor initialization rejected a zero or vault-self admin address.
+    InvalidAdminAddress = 32,
+    /// Constructor initialization rejected a zero or vault-self USDC address.
+    InvalidUsdcAddress = 33,
+    /// Constructor initialization rejected a zero or vault-self mUSDC address.
+    InvalidMusdcAddress = 34,
+    /// Constructor initialization rejected a zero or vault-self adapter address.
+    InvalidAdapterAddress = 35,
+    /// Constructor initialization rejected a zero or vault-self treasury address.
+    InvalidTreasuryAddress = 36,
+    /// Constructor initialization found that mUSDC is not administered by the vault.
+    MusdcAdminMismatch = 37,
+    /// `rescue_token` was called for a protected token: the vault's USDC,
+    /// mUSDC, or the active adapter contract.
+    ProtectedToken = 38,
+    /// The vault does not hold enough of the target token to satisfy the rescue amount.
+    InsufficientBalance = 39,
+    /// `deposit` would cause total assets to exceed the configured deposit cap.
+    DepositCapExceeded = 40,
 }
